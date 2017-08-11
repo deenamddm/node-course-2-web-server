@@ -2,6 +2,8 @@ var express = require ('express');
 var hbs = require ('hbs');
 var app=express();
 var fs = require ('fs');
+const port = process.env.PORT || 3000;
+
 app.set ('view engine',hbs);
 hbs.registerPartials(__dirname + '/views/partials');
 app.use (express.static(__dirname + '/public'));  // to use help.html. In browser-localhost:3000/help.html
@@ -49,6 +51,6 @@ app.get('/Error', (req,res) => {
   });
 });
 
-app.listen(3000,()=>{
-  console.log ('server is up on 3000');
+app.listen(port,()=>{
+  console.log (`server is up on ${port}`);
 });
